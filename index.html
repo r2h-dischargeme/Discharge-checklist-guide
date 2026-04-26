@@ -891,6 +891,37 @@ body {
   line-height: 1.65;
 }
 
+.contact-wrap {
+  padding: 4px 20px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.contact-note {
+  font-size: 14.3px;
+  font-style: italic;
+  color: var(--grey-30);
+  text-align: center;
+}
+.contact-btn {
+  display: block;
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 15.4px;
+  font-weight: 500;
+  color: var(--grey-70);
+  background: white;
+  border: 1.5px solid var(--grey-15);
+  border-radius: 12px;
+  padding: 16px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.18s;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+.contact-btn:active { background: var(--grey-04); }
 </style>
 </head>
 <body>
@@ -1243,6 +1274,10 @@ body {
         <button class="feedback-trigger-btn" onclick="goTo('screen-feedback')">Give us your feedback</button>
       </div>
     </div>
+  </div>
+  <div class="contact-wrap">
+    <p class="contact-note">If you have any queries, we're here.</p>
+    <a class="contact-btn" href="mailto:r2h.discharge.me@gmail.com,dancheongcoach@gmail.com,Salvatore.DEMA@austin.org.au?subject=Discharge%20Checklist%20Query">Contact the team</a>
   </div>
   <div class="page-footer">Written by Peers with Austin Health | V 1.1 April 2026™</div>
 </div>
