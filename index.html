@@ -78,6 +78,17 @@ body {
   font-style: italic;
   color: var(--teal-deep);
 }
+.nav-back-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: var(--teal-deep);
+  padding: 0 8px 0 4px;
+  cursor: pointer;
+  line-height: 1;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
 .nav-home-btn {
   font-family: var(--font-body);
   font-size: 15.2px;
@@ -922,6 +933,221 @@ body {
   box-sizing: border-box;
 }
 .contact-btn:active { background: var(--grey-04); }
+/* ── Back arrow button ─────────────────────────────────────── */
+.back-arrow-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: var(--teal-deep);
+  padding: 0 12px 0 0;
+  cursor: pointer;
+  line-height: 1;
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
+}
+.screen-back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  z-index: 2;
+}
+.checklist-topbar-inner { position: relative; }
+
+/* ── Dashboard group label ─────────────────────────────────── */
+.dash-group-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey-30);
+  padding: 20px 4px 8px;
+}
+
+/* ── Secondary dash card ───────────────────────────────────── */
+.dash-card-secondary {
+  background: var(--teal-ghost);
+  border-color: var(--teal-pale);
+}
+.dash-icon-secondary {
+  background: var(--teal-pale) !important;
+  color: var(--teal-deep) !important;
+}
+
+/* ── Remember box ──────────────────────────────────────────── */
+.remember-box {
+  margin: 24px 20px 32px;
+  background: var(--teal-ghost);
+  border-left: 3px solid var(--teal-mid);
+  border-radius: 10px;
+  padding: 20px 20px 16px;
+}
+.remember-text {
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: var(--grey-70);
+  margin-bottom: 12px;
+}
+.remember-closer {
+  font-weight: 600;
+  color: var(--teal-deep);
+  margin-bottom: 0;
+}
+
+/* ── My Team screen ────────────────────────────────────────── */
+.myteam-inner { padding: 0 0 40px; }
+.myteam-sub {
+  font-size: 15.4px;
+  color: var(--grey-50);
+  padding: 4px 20px 20px;
+  line-height: 1.5;
+}
+.myteam-group {
+  margin-bottom: 8px;
+}
+.myteam-group-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+  padding: 16px 20px 8px;
+}
+.myteam-field-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-top: 1px solid var(--grey-08);
+  gap: 12px;
+}
+.myteam-field-row:last-child { border-bottom: 1px solid var(--grey-08); }
+.myteam-field-name {
+  font-size: 15.4px;
+  color: var(--grey-70);
+  flex-shrink: 0;
+  min-width: 130px;
+}
+.myteam-field-static {
+  font-size: 15.4px;
+  font-weight: 600;
+  color: var(--teal-deep);
+}
+.myteam-emergency-row { background: rgba(26,107,107,0.06); }
+.myteam-input {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: 15.4px;
+  color: var(--grey-90);
+  border: none;
+  border-bottom: 1.5px solid var(--grey-15);
+  background: transparent;
+  padding: 4px 0;
+  text-align: right;
+  min-width: 0;
+}
+.myteam-input:focus {
+  outline: none;
+  border-bottom-color: var(--teal-mid);
+}
+.myteam-input::placeholder { color: var(--grey-30); }
+.myteam-scis {
+  margin: 24px 20px 8px;
+  background: var(--teal-ghost);
+  border-radius: 10px;
+  padding: 16px 18px;
+}
+.myteam-scis-label {
+  font-size: 12.1px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+  margin-bottom: 8px;
+}
+.myteam-scis-body {
+  font-size: 14.3px;
+  color: var(--grey-70);
+  line-height: 1.7;
+}
+/* ── Checklist extra cards (Final / Own) ───────────────────── */
+.cl-extra-group {
+  padding: 8px 16px 24px;
+}
+.cl-extra-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+  padding: 16px 4px 10px;
+}
+.cl-extra-card {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: var(--teal-ghost);
+  border: 1.5px solid var(--teal-pale);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  text-align: left;
+  gap: 14px;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s;
+  font-family: var(--font-body);
+}
+.cl-extra-card:active { background: var(--teal-pale); }
+.cl-extra-icon {
+  font-size: 20px;
+  width: 40px; height: 40px;
+  background: var(--teal-pale);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  color: var(--teal-deep);
+}
+.cl-extra-body { flex: 1; }
+.cl-extra-title {
+  font-size: 16.5px;
+  font-weight: 600;
+  color: var(--teal-deep);
+  margin-bottom: 2px;
+}
+.cl-extra-sub {
+  font-size: 13.2px;
+  color: var(--grey-50);
+}
+.cl-extra-arrow {
+  font-size: 22px;
+  color: var(--teal-mid);
+  flex-shrink: 0;
+}
+.own-add-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  background: none;
+  border: 1.5px dashed var(--teal-pale);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-top: 12px;
+  font-family: var(--font-body);
+  font-size: 15.4px;
+  font-weight: 500;
+  color: var(--teal-deep);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.15s;
+}
+.own-add-btn:active { background: var(--teal-ghost); }
+.own-add-icon {
+  font-size: 20px;
+  line-height: 1;
+  color: var(--teal-mid);
+}
 </style>
 </head>
 <body>
@@ -929,6 +1155,7 @@ body {
 <!-- ══ GLOBAL NAV ══════════════════════════════════════════ -->
 <nav id="global-nav" aria-label="Main navigation">
   <div class="nav-inner">
+    <button class="nav-back-btn" id="nav-back-btn" style="display:none;" onclick="navBack()" aria-label="Back">←</button>
     <span class="nav-brand">Your way back home.</span>
     <div style="display:flex;gap:8px;align-items:center;">
       <button class="nav-startover-btn" onclick="confirmStartOver()">Start over</button>
@@ -1063,8 +1290,26 @@ body {
     <div class="intro-section">
       <p>Your rehabilitation journey has been focused on helping you build confidence and skills for life at home. This guide is here to travel alongside you and your family as you prepare for this important transition.</p>
       <p>Leaving rehabilitation is a significant milestone — one that can bring both excitement and uncertainty. This guide doesn't determine whether you're ready to go home; it's a supportive tool to help you reflect on different aspects of daily life and identify areas where you might need additional planning or support.</p>
-      <p>By working through this guide with your care team and loved ones, you'll have the opportunity to think through your readiness to:</p>
     </div>
+  </div>
+  <div class="screen-footer">
+    <button class="btn btn-primary" onclick="goTo('screen-intro-2')">Next →</button>
+    <button class="btn btn-ghost" onclick="goTo('screen-welcome')">← Back</button>
+  </div>
+</div>
+
+<!-- ══ 4. INTRODUCTION PAGE 2 ══════════════════════════════ -->
+<div id="screen-intro-2" class="screen">
+  <div class="nav-spacer"></div>
+  <div class="intro-header">
+    <div class="intro-header-eyebrow">Introduction</div>
+    <div class="intro-header-title">This guide aims to:</div>
+    <div class="intro-dots">
+      <div class="intro-dot"></div>
+      <div class="intro-dot active"></div>
+    </div>
+  </div>
+  <div class="intro-body">
     <ol class="intro-list">
       <li><span class="intro-num">01</span>Look after your body and wellbeing</li>
       <li><span class="intro-num">02</span>Direct your own care with confidence</li>
@@ -1077,52 +1322,6 @@ body {
       <li><span class="intro-num">09</span>Get back to work or meaningful activities</li>
     </ol>
     <p style="font-size:18.9px;line-height:1.72;color:var(--grey-70);font-weight:400;padding:16px 0;">This is your journey, and every person's path looks different. Take your time, be honest with yourself, and remember that your rehabilitation team is here to support you every step of the way.</p>
-  </div>
-  <div class="screen-footer">
-    <button class="btn btn-primary" onclick="goTo('screen-intro-2')">Next →</button>
-  </div>
-</div>
-
-<!-- ══ 4. INTRODUCTION PAGE 2 ══════════════════════════════ -->
-<div id="screen-intro-2" class="screen">
-  <div class="nav-spacer"></div>
-  <div class="intro-header">
-    <div class="intro-header-eyebrow">Introduction</div>
-    <div class="intro-header-title">How we can help make<br>the process simple.</div>
-    <div class="intro-dots">
-      <div class="intro-dot"></div>
-      <div class="intro-dot active"></div>
-    </div>
-  </div>
-  <div class="feature-cards" style="flex:1; overflow-y:auto; -webkit-overflow-scrolling:touch; padding-bottom:20px;">
-    <div class="feature-card">
-      <div class="feature-icon">✓</div>
-      <div class="feature-text">
-        <h3>Discharge checklist</h3>
-        <p>Step-by-step categories covering everything before you leave</p>
-      </div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">⚡</div>
-      <div class="feature-text">
-        <h3>Quick reference</h3>
-        <p>Who to go to for what — in hospital and after you get home</p>
-      </div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">☑</div>
-      <div class="feature-text">
-        <h3>Final checks</h3>
-        <p>A dedicated checklist for the last things before discharge day</p>
-      </div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">✎</div>
-      <div class="feature-text">
-        <h3>Your own items</h3>
-        <p>Add anything specific to your journey that matters to you</p>
-      </div>
-    </div>
   </div>
   <div class="screen-footer">
     <button class="btn btn-primary" onclick="goToDashboard()">Go to my dashboard →</button>
@@ -1240,38 +1439,18 @@ body {
         <span class="dash-card-arrow">›</span>
       </button>
 
-      <button class="dash-card" onclick="goTo('screen-final')">
+      <button class="dash-card" onclick="goTo('screen-myteam')">
         <div class="dash-card-accent"></div>
-        <div class="dash-card-icon">☑</div>
+        <div class="dash-card-icon">👤</div>
         <div class="dash-card-body">
-          <div class="dash-card-title">Final checks</div>
-          <div class="dash-card-sub">Everything before you leave</div>
-        </div>
-        <span class="dash-card-arrow">›</span>
-      </button>
-
-      <button class="dash-card" onclick="goTo('screen-own')">
-        <div class="dash-card-accent"></div>
-        <div class="dash-card-icon">✎</div>
-        <div class="dash-card-body">
-          <div class="dash-card-title">Your own items</div>
-          <div class="dash-card-sub" id="dash-own-sub">Add items specific to your journey</div>
-        </div>
-        <span class="dash-card-arrow">›</span>
-      </button>
-
-      <button class="dash-card" onclick="goTo('screen-intro-1')" style="border-color:var(--grey-08)">
-        <div class="dash-card-accent" style="background:var(--grey-15)"></div>
-        <div class="dash-card-icon" style="background:var(--grey-08)">i</div>
-        <div class="dash-card-body">
-          <div class="dash-card-title" style="color:var(--grey-50)">Introduction</div>
-          <div class="dash-card-sub">Read again anytime</div>
+          <div class="dash-card-title">My team</div>
+          <div class="dash-card-sub">My personal supports and contacts</div>
         </div>
         <span class="dash-card-arrow">›</span>
       </button>
 
       <div id="feedback-btn-wrap">
-        <button class="feedback-trigger-btn" onclick="goTo('screen-feedback')">Give us your feedback</button>
+        <button class="feedback-trigger-btn" onclick="goTo('screen-feedback')"><strong>Add your feedback</strong> — so we can continue improving</button>
       </div>
     </div>
   </div>
@@ -1416,6 +1595,95 @@ body {
     <div class="fb-ty-title">Thank you.</div>
     <div class="fb-ty-body">Your feedback has been sent. It will help us make this better for everyone who uses it next.</div>
     <button class="btn-primary" onclick="goTo('screen-dashboard')" style="margin-top:32px;">Back to dashboard</button>
+  </div>
+  <div class="page-footer">Written by Peers with Austin Health | V 1.1 April 2026™</div>
+</div>
+
+<!-- ══ MY TEAM ════════════════════════════════════════════════ -->
+<div id="screen-myteam" class="screen">
+  <div class="nav-spacer"></div>
+  <div class="screen-header">
+    <div class="screen-header-eyebrow">My personal supports</div>
+    <div class="screen-header-title">My team.</div>
+  </div>
+  <div class="myteam-inner" style="flex:1; overflow-y:auto; -webkit-overflow-scrolling:touch;">
+    <p class="myteam-sub">Fill these in before discharge. Everything saves to your device.</p>
+
+    <div class="myteam-group">
+      <div class="myteam-group-label">Emergency</div>
+      <div class="myteam-field-row myteam-emergency-row">
+        <span class="myteam-field-name">Emergency services</span>
+        <span class="myteam-field-static">000</span>
+      </div>
+    </div>
+
+    <div class="myteam-group">
+      <div class="myteam-group-label">Hospital</div>
+      <div class="myteam-field-row">
+        <span class="myteam-field-name">Hospital ward</span>
+        <input class="myteam-input" type="text" placeholder="Ward name or number" data-key="hospital_ward"/>
+      </div>
+      <div class="myteam-field-row">
+        <span class="myteam-field-name">Closest hospital to home</span>
+        <input class="myteam-input" type="text" placeholder="Name and address" data-key="closest_hospital"/>
+      </div>
+    </div>
+
+    <div class="myteam-group">
+      <div class="myteam-group-label">My clinical team</div>
+      <div class="myteam-field-row">
+        <span class="myteam-field-name">GP</span>
+        <input class="myteam-input" type="text" placeholder="Name and phone" data-key="gp"/>
+      </div>
+      <div class="myteam-field-row">
+        <span class="myteam-field-name">Physio</span>
+        <input class="myteam-input" type="text" placeholder="Name and phone" data-key="physio"/>
+      </div>
+      <div class="myteam-field-row">
+        <span class="myteam-field-name">OT</span>
+        <input class="myteam-input" type="text" placeholder="Name and phone" data-key="ot"/>
+      </div>
+      <div class="myteam-field-row">
+        <span class="myteam-field-name">Nurse / case manager</span>
+        <input class="myteam-input" type="text" placeholder="Name and phone" data-key="nurse"/>
+      </div>
+    </div>
+
+    <div class="myteam-group">
+      <div class="myteam-group-label">Equipment and supplies</div>
+      <div class="myteam-field-row">
+        <span class="myteam-field-name">Equipment supplier</span>
+        <input class="myteam-input" type="text" placeholder="Name and phone" data-key="equipment_supplier"/>
+      </div>
+      <div class="myteam-field-row">
+        <span class="myteam-field-name">Closest pharmacist</span>
+        <input class="myteam-input" type="text" placeholder="Name, address and phone" data-key="pharmacist"/>
+      </div>
+    </div>
+
+    <div class="myteam-group">
+      <div class="myteam-group-label">Support</div>
+      <div class="myteam-field-row">
+        <span class="myteam-field-name">Carer agency</span>
+        <input class="myteam-input" type="text" placeholder="Name and phone" data-key="carer_agency"/>
+      </div>
+      <div class="myteam-field-row">
+        <span class="myteam-field-name">Peer support</span>
+        <input class="myteam-input" type="text" placeholder="Name and phone" data-key="peer_support"/>
+      </div>
+      <div class="myteam-field-row">
+        <span class="myteam-field-name">24-hour nurse line</span>
+        <input class="myteam-input" type="text" placeholder="Phone number" data-key="nurse_line"/>
+      </div>
+    </div>
+
+    <div class="myteam-scis">
+      <div class="myteam-scis-label">Spinal Community Integration Service (SCIS)</div>
+      <p class="myteam-scis-body">Available for the first 12 months after discharge.<br>
+        <strong>Phone:</strong> 03 9490 7264<br>
+        <strong>Email:</strong> spinalcommunityservices@austin.org.au
+      </p>
+    </div>
   </div>
   <div class="page-footer">Written by Peers with Austin Health | V 1.1 April 2026™</div>
 </div>
@@ -1704,11 +1972,48 @@ function navHome() {
 }
 
 // ── Screen navigation ──────────────────────────────────────
-function goTo(screenId) {
+// Screens that show nav back button (all post-onboarding except dashboard)
+const BACK_SCREENS = new Set([
+  'screen-checklist','screen-reference','screen-myteam',
+  'screen-final','screen-own','screen-feedback',
+  'screen-intro-1','screen-intro-2'
+]);
+
+// Screen history stack for one-step-back navigation
+const screenHistory = [];
+
+function updateNavBack(screenId) {
+  const btn = document.getElementById('nav-back-btn');
+  if (!btn) return;
+  btn.style.display = (BACK_SCREENS.has(screenId) || screenHistory.length > 0) ? 'block' : 'none';
+}
+
+function navBack() {
+  if (screenHistory.length > 0) {
+    const prev = screenHistory.pop();
+    goToNoHistory(prev);
+  } else {
+    goToNoHistory('screen-dashboard');
+  }
+}
+
+function goToNoHistory(screenId) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(screenId).classList.add('active');
+  const el = document.getElementById(screenId);
+  if (el) el.classList.add('active');
   window.scrollTo(0,0);
+  updateNavBack(screenId);
   requestAnimationFrame(updateHeights);
+  if (screenId === 'screen-final') renderRememberBox();
+  if (screenId === 'screen-myteam') loadMyTeam();
+}
+
+function goTo(screenId) {
+  const current = document.querySelector('.screen.active');
+  if (current && current.id !== screenId) {
+    screenHistory.push(current.id);
+  }
+  goToNoHistory(screenId);
 }
 
 // ── Onboarding ─────────────────────────────────────────────
@@ -1801,7 +2106,8 @@ function renderDashboard() {
     pct === 100 ? '✓ All done' : `${pct}% complete`;
 
   const ownFilled = S.ownItems.filter(i => i.text.trim()).length;
-  document.getElementById('dash-own-sub').textContent =
+  const ownSubEl = document.getElementById('cl-own-sub');
+  if (ownSubEl) ownSubEl.textContent =
     ownFilled > 0 ? `${ownFilled} item${ownFilled>1?'s':''} added` : 'Add items specific to your journey';
 }
 
@@ -1912,6 +2218,30 @@ function renderChecklist() {
     body.appendChild(wrap);
   });
 
+  // Final Checks + Own Items cards at bottom of checklist
+  const extraGroup = document.createElement('div');
+  extraGroup.className = 'cl-extra-group';
+  extraGroup.innerHTML = `
+    <div class="cl-extra-label">Other helpful checklists</div>
+    <button class="cl-extra-card" onclick="goTo('screen-final')">
+      <div class="cl-extra-icon">☑</div>
+      <div class="cl-extra-body">
+        <div class="cl-extra-title">Final checks</div>
+        <div class="cl-extra-sub">Everything before you leave</div>
+      </div>
+      <span class="cl-extra-arrow">›</span>
+    </button>
+    <button class="cl-extra-card" onclick="goTo('screen-own')">
+      <div class="cl-extra-icon">✎</div>
+      <div class="cl-extra-body">
+        <div class="cl-extra-title">Your own items</div>
+        <div class="cl-extra-sub" id="cl-own-sub">Add items specific to your journey</div>
+      </div>
+      <span class="cl-extra-arrow">›</span>
+    </button>
+  `;
+  body.appendChild(extraGroup);
+
   // Progress footer
   const footer = document.createElement('div');
   footer.className = 'progress-footer'; footer.id = 'progress-footer';
@@ -2016,31 +2346,47 @@ function updateFinalProgress() {
 }
 
 // ── Own Items ──────────────────────────────────────────────
+function makeOwnRow(idx) {
+  const item = S.ownItems[idx];
+  const row = document.createElement('div');
+  row.className = 'own-row'; row.id = 'ownrow-' + idx;
+  row.style.borderBottom = '1px solid var(--grey-08)';
+  const box = document.createElement('div');
+  box.className = 'own-box' + (item.checked ? ' checked' : '');
+  box.addEventListener('click', () => {
+    S.ownItems[idx].checked = !S.ownItems[idx].checked;
+    box.classList.toggle('checked', S.ownItems[idx].checked);
+    updateDashboardProgress(); save();
+  });
+  const inp = document.createElement('input');
+  inp.type='text'; inp.className='own-input';
+  inp.placeholder='Add your own item…'; inp.value=item.text;
+  inp.addEventListener('input', e => {
+    S.ownItems[idx].text = e.target.value;
+    updateDashboardProgress(); save();
+  });
+  row.appendChild(box); row.appendChild(inp);
+  return row;
+}
+
 function renderOwnItems() {
-  while (S.ownItems.length < 10) S.ownItems.push({ text:'', checked:false });
+  if (S.ownItems.length === 0) S.ownItems.push({ text:'', checked:false });
   const body = document.getElementById('own-body');
   body.innerHTML = '';
-  S.ownItems.forEach((item, idx) => {
-    const row = document.createElement('div');
-    row.className = 'own-row'; row.id = 'ownrow-' + idx;
-    row.style.borderBottom = '1px solid var(--grey-08)';
-    const box = document.createElement('div');
-    box.className = 'own-box' + (item.checked ? ' checked' : '');
-    box.addEventListener('click', () => {
-      S.ownItems[idx].checked = !S.ownItems[idx].checked;
-      box.classList.toggle('checked', S.ownItems[idx].checked);
-      updateDashboardProgress(); save();
-    });
-    const inp = document.createElement('input');
-    inp.type='text'; inp.className='own-input';
-    inp.placeholder='Add your own item…'; inp.value=item.text;
-    inp.addEventListener('input', e => {
-      S.ownItems[idx].text = e.target.value;
-      updateDashboardProgress(); save();
-    });
-    row.appendChild(box); row.appendChild(inp);
-    body.appendChild(row);
+  S.ownItems.forEach((item, idx) => body.appendChild(makeOwnRow(idx)));
+  // + Add item button
+  const addBtn = document.createElement('button');
+  addBtn.className = 'own-add-btn';
+  addBtn.innerHTML = '<span class="own-add-icon">+</span> Add item';
+  addBtn.addEventListener('click', () => {
+    S.ownItems.push({ text:'', checked:false });
+    save();
+    const newRow = makeOwnRow(S.ownItems.length - 1);
+    body.insertBefore(newRow, addBtn);
+    newRow.querySelector('.own-input').focus();
+    updateDashboardProgress();
   });
+  body.appendChild(addBtn);
 }
 
 function updateDashboardProgress() {
@@ -2051,7 +2397,7 @@ function updateDashboardProgress() {
   if (bar) bar.style.width = pct + '%';
   if (lbl) lbl.textContent = pct===100 ? '✓ All done' : `${pct}% complete`;
   const ownFilled = S.ownItems.filter(i => i.text.trim()).length;
-  const sub = document.getElementById('dash-own-sub');
+  const sub = document.getElementById('cl-own-sub');
   if (sub) sub.textContent = ownFilled > 0
     ? `${ownFilled} item${ownFilled>1?'s':''} added`
     : 'Add items specific to your journey';
@@ -2242,7 +2588,41 @@ async function submitFeedback() {
   document.getElementById('feedback-thankyou').style.display = 'flex';
 }
 
-document.addEventListener('DOMContentLoaded', initFeedback);
+// ── My Team ─────────────────────────────────────────────────
+const TEAM_KEY = 'dcg_myteam_v1';
+
+function loadMyTeam() {
+  const stored = JSON.parse(localStorage.getItem(TEAM_KEY) || '{}');
+  document.querySelectorAll('.myteam-input').forEach(input => {
+    const k = input.dataset.key;
+    if (stored[k]) input.value = stored[k];
+    input.addEventListener('input', () => {
+      const all = JSON.parse(localStorage.getItem(TEAM_KEY) || '{}');
+      all[input.dataset.key] = input.value;
+      localStorage.setItem(TEAM_KEY, JSON.stringify(all));
+    });
+  });
+}
+
+// ── Remember box in Final Checks ─────────────────────────────
+function renderRememberBox() {
+  const body = document.getElementById('final-body');
+  if (!body) return;
+  const box = document.createElement('div');
+  box.className = 'remember-box';
+  box.innerHTML = `
+    <p class="remember-text">You've been working toward this. Discharge isn't the end of rehabilitation — it's a new chapter.</p>
+    <p class="remember-text">You won't have it all figured out immediately. That's normal. Your team is still available for questions after you leave.</p>
+    <p class="remember-text">Ask for help when you need it. That's not weakness. That's practical.</p>
+    <p class="remember-text remember-closer">You've got this — not because it'll be easy, but because you've already proven you can do hard things.</p>
+  `;
+  body.appendChild(box);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadMyTeam();
+});
+
 </script>
 <script>
 if ('serviceWorker' in navigator) {
