@@ -385,27 +385,55 @@ body {
 }
 
 /* Progress pill */
+
+
+/* ── Dashboard spine progress ──────────────────────────────── */
 .dashboard-progress {
-  display: flex; align-items: center; gap: 12px;
-  background: var(--teal-ghost);
-  border: 1px solid var(--teal-pale);
-  border-radius: 12px; padding: 12px 16px;
-  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0 24px;
 }
-.dashboard-progress-bar-wrap {
-  flex: 1; height: 4px;
-  background: var(--teal-pale); border-radius: 2px; overflow: hidden;
+.spine-progress-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
 }
-.dashboard-progress-bar {
-  height: 100%; background: var(--teal-mid);
-  border-radius: 2px; transition: width 0.4s ease;
+.spine-progress-wrap svg { display: block; width: 100%; height: auto; }
+.spine-rib {
+  transition: fill 0.35s ease, stroke 0.35s ease, opacity 0.35s ease;
+}
+.spine-rib.empty {
+  fill: none;
+  stroke: var(--teal-pale);
+  opacity: 0.5;
+}
+.spine-rib.filled {
+  fill: var(--teal-mid);
+  stroke: var(--teal-mid);
+}
+.spine-rib.filled.just-filled {
+  animation: rib-pop 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+@keyframes rib-pop {
+  0%   { transform: scaleY(0.6); transform-origin: center; opacity: 0.4; }
+  60%  { transform: scaleY(1.1); }
+  100% { transform: scaleY(1); opacity: 1; }
+}
+.spine-cord {
+  stroke: var(--teal-soft);
+  opacity: 0.4;
+  transition: opacity 0.4s;
 }
 .dashboard-progress-label {
-  font-size: 15.2px; font-weight: 600; color: var(--teal-deep);
-  white-space: nowrap;
+  font-size: 15.2px;
+  font-weight: 600;
+  color: var(--teal-deep);
+  text-align: center;
 }
-
-/* Dashboard nav cards */
+/* ── Dashboard nav cards ───────────────────────────────────── */
 .dashboard-cards {
   display: flex; flex-direction: column; gap: 10px;
   position: relative; z-index: 2;
@@ -445,23 +473,7 @@ body {
   font-size: 25.3px; color: var(--grey-30); line-height: 1;
 }
 
-/* Spine framing the dashboard cards */
-.dashboard-spine-left {
-  position: fixed;
-  left: -18px; top: 50%;
-  transform: translateY(-50%);
-  width: 72px; opacity: 0.07;
-  z-index: 1; pointer-events: none;
-  animation: spine-pulse 5s ease-in-out infinite;
-}
-.dashboard-spine-right {
-  position: fixed;
-  right: -18px; top: 50%;
-  transform: translateY(-50%) scaleX(-1);
-  width: 72px; opacity: 0.07;
-  z-index: 1; pointer-events: none;
-  animation: spine-pulse 5s ease-in-out infinite 1.5s;
-}
+
 
 /* ════════════════════════════════════════════════════════
    5. CHECKLIST SCREEN
@@ -1333,78 +1345,6 @@ body {
 <div id="screen-dashboard" class="screen">
   <div class="nav-spacer"></div>
 
-  <!-- Framing spines -->
-  <div class="dashboard-spine-left" aria-hidden="true">
-    <svg viewBox="0 0 80 340" fill="none" xmlns="http://www.w3.org/2000/svg"
-         stroke="#1A6B6B" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M40 10 C42 30 38 50 40 70 C42 90 38 110 40 130 C42 150 38 170 40 190 C42 210 38 230 40 250 C41 265 40 280 40 295" stroke-width="1.8"/>
-      <g stroke-width="1.5">
-        <rect x="28" y="8"  width="24" height="11" rx="3"/>
-        <rect x="27" y="22" width="26" height="11" rx="3"/>
-        <rect x="26" y="36" width="28" height="11" rx="3"/>
-        <rect x="26" y="50" width="28" height="11" rx="3"/>
-        <rect x="26" y="64" width="28" height="11" rx="3"/>
-        <rect x="26" y="78" width="28" height="11" rx="3"/>
-        <rect x="27" y="92" width="26" height="11" rx="3"/>
-      </g>
-      <g stroke-width="1.5">
-        <rect x="24" y="107" width="32" height="12" rx="3"/>
-        <rect x="23" y="122" width="34" height="12" rx="3"/>
-        <rect x="22" y="137" width="36" height="12" rx="3"/>
-        <rect x="22" y="152" width="36" height="12" rx="3"/>
-        <rect x="22" y="167" width="36" height="12" rx="3"/>
-        <rect x="22" y="182" width="36" height="12" rx="3"/>
-        <rect x="22" y="197" width="36" height="12" rx="3"/>
-        <rect x="22" y="212" width="34" height="12" rx="3"/>
-        <rect x="23" y="227" width="34" height="11" rx="3"/>
-        <rect x="23" y="241" width="32" height="11" rx="3"/>
-        <rect x="24" y="255" width="32" height="11" rx="3"/>
-        <rect x="25" y="269" width="30" height="11" rx="3"/>
-      </g>
-      <g stroke-width="1.8">
-        <rect x="20" y="283" width="40" height="13" rx="3"/>
-        <rect x="19" y="299" width="42" height="13" rx="3"/>
-        <rect x="19" y="315" width="42" height="13" rx="3"/>
-        <rect x="20" y="331" width="40" height="13" rx="4"/>
-      </g>
-    </svg>
-  </div>
-  <div class="dashboard-spine-right" aria-hidden="true">
-    <svg viewBox="0 0 80 340" fill="none" xmlns="http://www.w3.org/2000/svg"
-         stroke="#1A6B6B" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M40 10 C42 30 38 50 40 70 C42 90 38 110 40 130 C42 150 38 170 40 190 C42 210 38 230 40 250 C41 265 40 280 40 295" stroke-width="1.8"/>
-      <g stroke-width="1.5">
-        <rect x="28" y="8"  width="24" height="11" rx="3"/>
-        <rect x="27" y="22" width="26" height="11" rx="3"/>
-        <rect x="26" y="36" width="28" height="11" rx="3"/>
-        <rect x="26" y="50" width="28" height="11" rx="3"/>
-        <rect x="26" y="64" width="28" height="11" rx="3"/>
-        <rect x="26" y="78" width="28" height="11" rx="3"/>
-        <rect x="27" y="92" width="26" height="11" rx="3"/>
-      </g>
-      <g stroke-width="1.5">
-        <rect x="24" y="107" width="32" height="12" rx="3"/>
-        <rect x="23" y="122" width="34" height="12" rx="3"/>
-        <rect x="22" y="137" width="36" height="12" rx="3"/>
-        <rect x="22" y="152" width="36" height="12" rx="3"/>
-        <rect x="22" y="167" width="36" height="12" rx="3"/>
-        <rect x="22" y="182" width="36" height="12" rx="3"/>
-        <rect x="22" y="197" width="36" height="12" rx="3"/>
-        <rect x="22" y="212" width="34" height="12" rx="3"/>
-        <rect x="23" y="227" width="34" height="11" rx="3"/>
-        <rect x="23" y="241" width="32" height="11" rx="3"/>
-        <rect x="24" y="255" width="32" height="11" rx="3"/>
-        <rect x="25" y="269" width="30" height="11" rx="3"/>
-      </g>
-      <g stroke-width="1.8">
-        <rect x="20" y="283" width="40" height="13" rx="3"/>
-        <rect x="19" y="299" width="42" height="13" rx="3"/>
-        <rect x="19" y="315" width="42" height="13" rx="3"/>
-        <rect x="20" y="331" width="40" height="13" rx="4"/>
-      </g>
-    </svg>
-  </div>
-
   <div class="dashboard-inner">
     <div class="dashboard-greeting">
       <div class="dashboard-greeting-name">Hi, <em id="dash-name"></em></div>
@@ -1412,8 +1352,41 @@ body {
     <span class="dashboard-type" id="dash-type"></span>
 
     <div class="dashboard-progress">
-      <div class="dashboard-progress-bar-wrap">
-        <div class="dashboard-progress-bar" id="dash-progress-bar" style="width:0%"></div>
+      <div class="spine-progress-wrap" aria-label="Progress indicator">
+        <svg id="spine-progress-svg" viewBox="0 0 300 70" fill="none"
+             xmlns="http://www.w3.org/2000/svg"
+             stroke-linecap="round" stroke-linejoin="round">
+          <!-- Horizontal cord -->
+          <path class="spine-cord" d="M6 35 C26 33 46 37 66 35 C86 33 106 37 126 35 C146 33 166 37 186 35 C206 33 226 37 246 35 C266 33 286 37 294 35" stroke-width="2" fill="none"/>
+          <!-- 23 vertebrae — left=cervical (narrow), centre=thoracic (wide), right=lumbar/sacral (widest) -->
+          <!-- Cervical C1–C7 (narrow, left side) -->
+          <rect class="spine-rib empty" id="rib-0"  x="4"   y="28" width="10" height="14" rx="2.5" stroke-width="1.5"/>
+          <rect class="spine-rib empty" id="rib-1"  x="17"  y="27" width="10" height="16" rx="2.5" stroke-width="1.5"/>
+          <rect class="spine-rib empty" id="rib-2"  x="30"  y="26" width="11" height="18" rx="2.5" stroke-width="1.5"/>
+          <rect class="spine-rib empty" id="rib-3"  x="44"  y="25" width="11" height="20" rx="2.5" stroke-width="1.5"/>
+          <rect class="spine-rib empty" id="rib-4"  x="58"  y="24" width="12" height="22" rx="3"   stroke-width="1.5"/>
+          <rect class="spine-rib empty" id="rib-5"  x="73"  y="23" width="12" height="24" rx="3"   stroke-width="1.5"/>
+          <rect class="spine-rib empty" id="rib-6"  x="88"  y="22" width="12" height="26" rx="3"   stroke-width="1.5"/>
+          <!-- Thoracic T1–T9 (widest, centre) -->
+          <rect class="spine-rib empty" id="rib-7"  x="103" y="21" width="13" height="28" rx="3"   stroke-width="1.5"/>
+          <rect class="spine-rib empty" id="rib-8"  x="119" y="20" width="13" height="30" rx="3"   stroke-width="1.5"/>
+          <rect class="spine-rib empty" id="rib-9"  x="135" y="20" width="14" height="30" rx="3"   stroke-width="1.5"/>
+          <rect class="spine-rib empty" id="rib-10" x="152" y="20" width="14" height="30" rx="3"   stroke-width="1.5"/>
+          <rect class="spine-rib empty" id="rib-11" x="169" y="20" width="13" height="30" rx="3"   stroke-width="1.5"/>
+          <rect class="spine-rib empty" id="rib-12" x="185" y="20" width="13" height="30" rx="3"   stroke-width="1.5"/>
+          <rect class="spine-rib empty" id="rib-13" x="201" y="21" width="12" height="28" rx="3"   stroke-width="1.5"/>
+          <rect class="spine-rib empty" id="rib-14" x="216" y="22" width="12" height="26" rx="3"   stroke-width="1.5"/>
+          <rect class="spine-rib empty" id="rib-15" x="231" y="22" width="12" height="26" rx="3"   stroke-width="1.5"/>
+          <!-- Lumbar L1–L5 (wide, right) -->
+          <rect class="spine-rib empty" id="rib-16" x="246" y="23" width="12" height="24" rx="3"   stroke-width="1.8"/>
+          <rect class="spine-rib empty" id="rib-17" x="261" y="23" width="12" height="24" rx="3"   stroke-width="1.8"/>
+          <rect class="spine-rib empty" id="rib-18" x="276" y="23" width="12" height="24" rx="3"   stroke-width="1.8"/>
+          <!-- Sacral S1–S4 (far right, slightly shorter) -->
+          <rect class="spine-rib empty" id="rib-19" x="244" y="31" width="0"  height="0"  rx="0"   stroke-width="0"/>
+          <rect class="spine-rib empty" id="rib-20" x="244" y="31" width="0"  height="0"  rx="0"   stroke-width="0"/>
+          <rect class="spine-rib empty" id="rib-21" x="244" y="31" width="0"  height="0"  rx="0"   stroke-width="0"/>
+          <rect class="spine-rib empty" id="rib-22" x="244" y="31" width="0"  height="0"  rx="0"   stroke-width="0"/>
+        </svg>
       </div>
       <span class="dashboard-progress-label" id="dash-progress-label">0% complete</span>
     </div>
@@ -1985,7 +1958,12 @@ const screenHistory = [];
 function updateNavBack(screenId) {
   const btn = document.getElementById('nav-back-btn');
   if (!btn) return;
-  btn.style.display = (BACK_SCREENS.has(screenId) || screenHistory.length > 0) ? 'block' : 'none';
+  const neverBack = new Set(['screen-welcome','screen-onboard','screen-dashboard']);
+  if (neverBack.has(screenId)) {
+    btn.style.display = 'none';
+    return;
+  }
+  btn.style.display = screenHistory.length > 0 ? 'block' : 'none';
 }
 
 function navBack() {
@@ -2006,6 +1984,7 @@ function goToNoHistory(screenId) {
   requestAnimationFrame(updateHeights);
   if (screenId === 'screen-final') renderRememberBox();
   if (screenId === 'screen-myteam') loadMyTeam();
+  if (screenId === 'screen-feedback') initFeedback();
 }
 
 function goTo(screenId) {
@@ -2090,6 +2069,31 @@ function renderAll() {
 }
 
 // ── Dashboard ──────────────────────────────────────────────
+const TOTAL_RIBS = 19;
+let _lastFilledRibs = -1;
+
+function updateSpineProgress(pct) {
+  const filledCount = Math.round((pct / 100) * TOTAL_RIBS);
+  for (let i = 0; i < TOTAL_RIBS; i++) {
+    const rib = document.getElementById('rib-' + i);
+    if (!rib) continue;
+    if (i < filledCount) {
+      if (!rib.classList.contains('filled')) {
+        rib.classList.remove('empty');
+        rib.classList.add('filled');
+        if (i >= _lastFilledRibs) {
+          rib.classList.add('just-filled');
+          setTimeout(() => rib.classList.remove('just-filled'), 450);
+        }
+      }
+    } else {
+      rib.classList.remove('filled', 'just-filled');
+      rib.classList.add('empty');
+    }
+  }
+  _lastFilledRibs = filledCount;
+}
+
 function renderDashboard() {
   const typeLabels = {
     para: 'Paraplegia',
@@ -2101,9 +2105,10 @@ function renderDashboard() {
 
   const { total, done } = countAllItems();
   const pct = total ? Math.round(done/total*100) : 0;
-  document.getElementById('dash-progress-bar').style.width = pct + '%';
-  document.getElementById('dash-progress-label').textContent =
-    pct === 100 ? '✓ All done' : `${pct}% complete`;
+
+  const lbl = document.getElementById('dash-progress-label');
+  if (lbl) lbl.textContent = pct === 100 ? '✓ All done' : `${pct}% complete`;
+  updateSpineProgress(pct);
 
   const ownFilled = S.ownItems.filter(i => i.text.trim()).length;
   const ownSubEl = document.getElementById('cl-own-sub');
@@ -2392,10 +2397,9 @@ function renderOwnItems() {
 function updateDashboardProgress() {
   const { total, done } = countAllItems();
   const pct = total ? Math.round(done/total*100) : 0;
-  const bar = document.getElementById('dash-progress-bar');
   const lbl = document.getElementById('dash-progress-label');
-  if (bar) bar.style.width = pct + '%';
   if (lbl) lbl.textContent = pct===100 ? '✓ All done' : `${pct}% complete`;
+  updateSpineProgress(pct);
   const ownFilled = S.ownItems.filter(i => i.text.trim()).length;
   const sub = document.getElementById('cl-own-sub');
   if (sub) sub.textContent = ownFilled > 0
@@ -2513,7 +2517,8 @@ function initFeedback() {
   ['fb1','fb2'].forEach(id => {
     const row = document.getElementById(id);
     if (!row) return;
-    for (let i = 1; i <= 10; i++) {
+    row.innerHTML = '';
+    for (let i = 1; i <= 5; i++) {
       const btn = document.createElement('button');
       btn.className = 'fb-scale-btn';
       btn.textContent = i;
@@ -2527,6 +2532,7 @@ function initFeedback() {
   });
   const agreeRow = document.getElementById('fb3');
   if (agreeRow) {
+    agreeRow.innerHTML = '';
     agreeLabels.forEach(label => {
       const btn = document.createElement('button');
       btn.className = 'fb-agree-btn';
