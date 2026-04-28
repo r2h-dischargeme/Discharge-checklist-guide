@@ -1,4 +1,4 @@
-const CACHE = 'dcg-v13';
+const CACHE = 'dcg-v14';
 const ASSETS = [
   '/',
   '/index.html',

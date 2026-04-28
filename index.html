@@ -1315,7 +1315,7 @@ body {
   <div class="nav-spacer"></div>
   <div class="intro-header">
     <div class="intro-header-eyebrow">Introduction</div>
-    <div class="intro-header-title">This guide aims to help you:</div>
+    <div class="intro-header-title">This guide aims to:</div>
     <div class="intro-dots">
       <div class="intro-dot"></div>
       <div class="intro-dot active"></div>
@@ -1529,12 +1529,12 @@ body {
 
     <div class="fb-q">
       <div class="fb-q-label">1. I found the discharge checklists easy to use.</div>
-      <div class="fb-scale-row" id="fb1"></div>
+      <div class="fb-agree-row" id="fb1"></div>
     </div>
 
     <div class="fb-q">
       <div class="fb-q-label">2. The discharge checklists helped me understand the discharge process.</div>
-      <div class="fb-scale-row" id="fb2"></div>
+      <div class="fb-agree-row" id="fb2"></div>
     </div>
 
     <div class="fb-q">
@@ -1826,7 +1826,7 @@ const SECTIONS = [
       {id:'th3', text:'Community OT booked before discharge'},
       {id:'th4', text:'Plan in place for equipment adjustments and return to activities'},
     ]},
-    { title:'Psychology & Counselling', who:'Ask: Psychology team', items:[
+    { title:'Psychology/Counselling', who:'Ask: Psychology team', items:[
       {id:'th5', text:'Psychology or counselling connected (if wanted)'},
       {id:'th6', text:'Letter of referral for community psychological support obtained (if applicable)'},
       {id:'th7', text:'Peer support groups identified (AQA Victoria, Spinal Injuries VIC Facebook group)'},
@@ -1837,7 +1837,7 @@ const SECTIONS = [
     ]}
   ]},
   { id:'s-life', title:'Life Beyond Rehab', types:['para','quad','resp'], subsections:[
-    { title:'Connecting with Family & Friends', who:'Ask: Leisure Therapist', items:[
+    { title:'Connect with Family and Friends', who:'Ask: Leisure Therapist', items:[
       {id:'lf1', text:'Plans made to reconnect with family and friends'},
       {id:'lf2', text:'At least one outing or activity planned for after discharge'},
     ]},
@@ -1845,7 +1845,7 @@ const SECTIONS = [
       {id:'lf3', text:'Asked about peer coaching programs before leaving'},
       {id:'lf4', text:'Connected with peer support network (AQA, Spinal Injuries VIC)'},
     ]},
-    { title:'Work & Study', who:'Ask: OT', items:[
+    { title:'Work or Study', who:'Ask: OT', items:[
       {id:'lf5', text:'Vocational rehab or return-to-study path identified (if relevant)'},
       {id:'lf6', text:'Workplace modifications or study support explored'},
     ]},
@@ -1880,9 +1880,17 @@ const FINAL_CHECKS = [
     {id:'fc5', text:'Medical equipment delivered and tested'},
     {id:'fc6', text:'Supplies stocked for at least 2 weeks'},
   ]},
+  { cat:'Nursing Education Topics', items:[
+    {id:'fc_n1', text:'What caused the damage / your spinal cord injury'},
+    {id:'fc_n2', text:'Skin'},
+    {id:'fc_n3', text:'Bowel'},
+    {id:'fc_n4', text:'Bladder'},
+    {id:'fc_n5', text:'Dysreflexia and complications'},
+    {id:'fc_n6', text:'Sexual health'},
+  ]},
   { cat:'Home', items:[
     {id:'fc7',  text:'Home assessment complete'},
-    {id:'fc8',  text:'Modifications finished or scheduled with a firm date'},
+    {id:'fc8',  text:'Modifications finished or scheduled'},
     {id:'fc9',  text:'Equipment installed and working'},
     {id:'fc10', text:'Backup power plan confirmed'},
     {id:'fc11', text:'Emergency exits accessible'},
@@ -1892,6 +1900,10 @@ const FINAL_CHECKS = [
     {id:'fc13', text:'Family knows emergency procedures'},
     {id:'fc14', text:'Contact list created (medical, equipment, support)'},
     {id:'fc15', text:'Overnight leave trial successful'},
+  ]},
+  { cat:'Therapy', items:[
+    {id:'fc_t1', text:'Community physio and OT arranged'},
+    {id:'fc_t2', text:'Psychology or counselling connected (if wanted)'},
   ]},
   { cat:'Life', items:[
     {id:'fc16', text:'Transport sorted'},
@@ -1957,8 +1969,11 @@ const screenHistory = [];
 
 function updateNavBack(screenId) {
   const btn = document.getElementById('nav-back-btn');
+  const soBtn = document.querySelector('.nav-startover-btn');
   if (!btn) return;
-  const neverBack = new Set(['screen-welcome','screen-onboard','screen-dashboard']);
+  const neverBack = new Set(['screen-welcome','screen-onboard','screen-dashboard','screen-intro-1','screen-intro-2']);
+  const hideStartOver = new Set(['screen-welcome','screen-onboard','screen-intro-1','screen-intro-2']);
+  if (soBtn) soBtn.style.display = hideStartOver.has(screenId) ? 'none' : '';
   if (neverBack.has(screenId)) {
     btn.style.display = 'none';
     return;
@@ -2176,7 +2191,7 @@ function renderChecklist() {
       document.querySelectorAll('#checklist-body .cl-section').forEach(s => s.classList.remove('open'));
       if (!isOpen) {
         wrap.classList.add('open');
-        requestAnimationFrame(() => {
+        requestAnimationFrame(() => requestAnimationFrame(() => {
           const scroller = document.getElementById('checklist-body');
           const topbarH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--topbar-h')) || 0;
           const wrapTop = wrap.getBoundingClientRect().top;
@@ -2184,7 +2199,7 @@ function renderChecklist() {
           const current = scroller.scrollTop;
           const target = current + (wrapTop - scrollerTop) - topbarH;
           scroller.scrollTo({ top: target, behavior: 'smooth' });
-        });
+        }));
       }
     });
     wrap.appendChild(hdr);
@@ -2518,17 +2533,17 @@ function initFeedback() {
     const row = document.getElementById(id);
     if (!row) return;
     row.innerHTML = '';
-    for (let i = 1; i <= 5; i++) {
+    agreeLabels.forEach(label => {
       const btn = document.createElement('button');
-      btn.className = 'fb-scale-btn';
-      btn.textContent = i;
-      btn.dataset.val = i;
+      btn.className = 'fb-agree-btn';
+      btn.textContent = label;
+      btn.dataset.val = label;
       btn.addEventListener('click', () => {
-        row.querySelectorAll('.fb-scale-btn').forEach(b => b.classList.remove('selected'));
+        row.querySelectorAll('.fb-agree-btn').forEach(b => b.classList.remove('selected'));
         btn.classList.add('selected');
       });
       row.appendChild(btn);
-    }
+    });
   });
   const agreeRow = document.getElementById('fb3');
   if (agreeRow) {
